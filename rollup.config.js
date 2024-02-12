@@ -11,7 +11,8 @@ export default {
     typescript(),
     copy({
       targets: [
-        { src: './public/index.html', dest: 'dist' }
+        { src: './public/index.html', dest: './dist' },
+        { src: './public/css/main.css', dest: './dist/css' }
       ]
     })
   ]
