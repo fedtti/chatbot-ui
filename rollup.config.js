@@ -2,7 +2,7 @@ import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 
 export default {
-  input: ['./src/index.ts', './src/providers/openai.ts', './src/providers/wolframalpha.ts'],
+  input: ['./src/client.ts', './src/server.ts'],
   output: {
     dir: './dist/js',
     format: 'esm'
