@@ -24,17 +24,24 @@
       </header>
       <!-- CONTENT -->
       <main id="content">
-
+        <div id="messages"></div>
       </main>
       <!-- FOOTER -->
       <footer id="footer">
-        <form>
-          <fieldset>
-            <legend></legend>
-            <input type="text" placeholder="Enter a user message here.">
-            <button class="btn btn-primary" type="submit">Send</button>
-          </fieldset>
-        </form>
+        <div class="container-fluid">
+          <form novalidate>
+            <fieldset>
+              <legend class="visually-hidden">Add message</legend>
+              <div class="row">
+                <div class="col">
+                  <input class="form-control" type="text" placeholder="Enter a user message here." aria-label="Message">
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </fieldset>
+          </form>
+        </div>
       </footer>
     </div>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
