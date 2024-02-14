@@ -7,16 +7,31 @@ const sendMessage = async (): Promise<any> => {
 
   if (!!message) { return; } // Stop if message is empty.
 
-  const question = document.createElement('div');
+  const question: HTMLDivElement = document.createElement('div');
   question.classList.add('question');
   question.innerHTML = message;
   messages.appendChild(question);
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
 
+  const res = await fetch('', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      question: message
+    })
+  });
 
+  const data = await res.json();
 
-
+  if (!!data.message) {
+    const answer: HTMLDivElement = document.createElement('div');
+    answer.classList.add('answer');
+    answer.innerHTML = data.message;
+    messages.appendChild(answer);
+  }
 };
 const button = (<HTMLButtonElement>document.querySelector('button[type="submit"]'));
 button.addEventListener('click', sendMessage, false);
