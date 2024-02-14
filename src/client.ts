@@ -14,7 +14,7 @@ const sendMessage = async (): Promise<any> => {
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
 
-  const res = await fetch('http://localhost:5000/chat', {
+  const res = await fetch('http://localhost:9000/chat', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

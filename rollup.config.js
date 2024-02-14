@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
+
+dotenv.config();
 
 export default {
   input: ['./src/client.ts', './src/server.ts'],

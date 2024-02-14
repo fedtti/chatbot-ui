@@ -10,7 +10,7 @@
       ]
     },
     "allowImportingTsExtensions": true,
-    "outDir": "./dist",
+    "outDir": "./dist/js",
     "noEmit": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

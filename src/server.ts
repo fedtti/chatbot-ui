@@ -8,7 +8,9 @@ const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const app = express();
 
-app.listen('5000', () => {
+app.use(express.static('dist'));
+
+app.listen('9000', () => {
   console.info('');
 });
 

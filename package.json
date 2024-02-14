@@ -4,8 +4,8 @@
   "description": "Chatbot",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js"
+    "build": "rollup -c ./rollup.config.js",
+    "start": "node dist/js/server.js"
   },
   "author": "Federico Moretti <hello@federicomoretti.it>",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "@types/node": "^20.11.17",
     "rollup": "^4.10.0",
     "rollup-plugin-copy": "^3.5.0",
+    "tslib": "^2.6.2",
     "tsx": "^4.7.1",
     "typescript": "^5.3.3"
   },
@@ -26,5 +27,6 @@
     "needle": "^3.3.1",
     "openai": "^4.27.0"
   },
+  "type": "module",
   "private": "true"
 }
