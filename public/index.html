@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot</title>
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.rel='stylesheet'">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js" as="script">
     <link rel="stylesheet" href="css/main.css">
   </head>
@@ -19,10 +18,6 @@
           <div class="row">
             <div class="col">
               <h1>Chatbot</h1>
-              <p>Contact in progress…</p>
-            </div>
-            <div class="col">
-              <a href="#" onclick="" role="button"><i class="fa-solid fa-xmark" title="X Mark"></i></a>
             </div>
           </div>
         </div>
@@ -36,13 +31,13 @@
         <form>
           <fieldset>
             <legend></legend>
-            <input type="text">
-            <button type="submit"></button>
+            <input type="text" placeholder="Enter a user message here.">
+            <button class="btn btn-primary" type="submit">Send</button>
           </fieldset>
         </form>
       </footer>
     </div>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/client.js"></script>
   </body>
 </html>
