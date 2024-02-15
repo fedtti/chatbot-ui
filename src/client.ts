@@ -1,11 +1,12 @@
 /**
  * Send a message as a question to OpenAI.
  */
-const sendMessage = async (): Promise<any> => {
+const sendMessage = async (evt: any): Promise<any> => {
+  evt.preventDefault();
   const messages = (<HTMLDivElement>document.querySelector('#messages'));
   const message: string = (<HTMLInputElement>document.querySelector('#message')).value;
 
-  if (!!message) { return; } // Stop if message is empty.
+  if (!message) { return; } // Stop if message is empty.
 
   const question: HTMLDivElement = document.createElement('div');
   question.classList.add('question');
@@ -14,17 +15,16 @@ const sendMessage = async (): Promise<any> => {
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
 
-  const res = await fetch('http://localhost:9000/chat', {
+  const res = await fetch('/chat', {
     method: 'POST',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({
-      question: message
-    })
+    body: JSON.stringify({ question: message })
   });
 
-  const data = await res.json();
+  const data: any = await res.json();
 
   if (!!data.message) {
     const answer: HTMLDivElement = document.createElement('div');
@@ -33,5 +33,5 @@ const sendMessage = async (): Promise<any> => {
     messages.appendChild(answer);
   }
 };
-const button = (<HTMLButtonElement>document.querySelector('button[type="submit"]'));
+const button = (<HTMLButtonElement>document.querySelector('.btn.btn-primary'));
 button.addEventListener('click', sendMessage, false);

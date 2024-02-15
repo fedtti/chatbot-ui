@@ -24,7 +24,9 @@
       </header>
       <!-- CONTENT -->
       <main id="content">
-        <div id="messages"></div>
+        <div class="container-fluid">
+          <div id="messages"></div>
+        </div>
       </main>
       <!-- FOOTER -->
       <footer id="footer">
@@ -33,7 +35,7 @@
             <fieldset>
               <legend class="visually-hidden">Add message</legend>
               <div class="d-flex">
-                <input id="message" class="form-control" type="text" placeholder="Enter a user message here." aria-label="Message">
+                <input id="message" class="form-control" name="message" type="text" placeholder="Enter a user message here." aria-label="Message">
                 <button class="btn btn-primary" type="submit">Submit</button>
               </div>
             </fieldset>
@@ -42,6 +44,6 @@
       </footer>
     </div>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    <script src="js/client.js"></script>
+    <script src="./js/client.js"></script>
   </body>
 </html>

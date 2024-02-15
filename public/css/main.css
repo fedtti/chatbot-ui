@@ -27,6 +27,12 @@ h1 {
   padding-top: 0.5rem;
 }
 
+/* CONTENT */
+#content {
+  box-sizing: border-box;
+  margin: 3.613rem 0 0 0;
+}
+
 /* FOOTER */
 #footer {
   bottom: 0;
