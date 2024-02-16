@@ -26,7 +26,7 @@ const sendMessage = async (evt: any): Promise<any> => {
       if (res.ok) {
         return res.json();
       } else {
-        throw new Error('Error');
+        throw new Error('Error: there was no response to the request.');
       };
     })
     .then((data) => {

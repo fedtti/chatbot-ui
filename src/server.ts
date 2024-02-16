@@ -13,7 +13,7 @@ app.use(express.static('dist'));
 app.use(bodyParser.json());
 
 /**
- * Forward the POST request to OpenAI.
+ * Forward the `POST` request to OpenAI.
  * 
  * @returns {string} answer - GTP-3.5 answer to the user’s question.
  */
