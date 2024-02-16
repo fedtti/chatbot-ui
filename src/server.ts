@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import OpenAI from 'openai';
 import express from 'express';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -26,8 +27,9 @@ app.post('/chat', async (req, res): Promise<void> => {
 });
 
 app.use(express.static('dist'));
+app.use(cors);
 
 const port = '9000';
 app.listen('9000', () => {
-  console.info(`Server running at localhost on port: ${port}.`);
+  console.info(`CORS-enabled server running at localhost on port: ${port}.`);
 });

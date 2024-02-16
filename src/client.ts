@@ -15,23 +15,27 @@ const sendMessage = async (evt: any): Promise<any> => {
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
 
-  const res = await fetch('/chat', {
+  await fetch('/chat', {
     method: 'POST',
     mode: 'cors',
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ question: message })
-  });
-
-  const data: any = await res.json();
-
-  if (!!data.message) {
-    const answer: HTMLDivElement = document.createElement('div');
-    answer.classList.add('answer');
-    answer.innerHTML = data.message;
-    messages.appendChild(answer);
-  }
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (!!data.message) {
+        const answer: HTMLDivElement = document.createElement('div');
+        answer.classList.add('answer');
+        answer.innerHTML = data.message;
+        messages.appendChild(answer);
+      }
+    })
+    .catch((err: any) => {
+      console.error(err);
+    });
 };
 const button = (<HTMLButtonElement>document.querySelector('.btn.btn-primary'));
 button.addEventListener('click', sendMessage, false);
