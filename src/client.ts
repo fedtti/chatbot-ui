@@ -23,11 +23,7 @@ const sendMessage = async (evt: any): Promise<any> => {
     body: JSON.stringify({ question: message })
   })
     .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        throw new Error('Error: there was no response to the request.');
-      };
+      if (res.ok) { return res.json(); }
     })
     .then((data) => {
       if (data.message) {
