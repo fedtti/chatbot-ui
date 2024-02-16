@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
-    "start": "DEBUG=express:* node ./dist/js/server.js"
+    "start": "node ./dist/js/server.js"
   },
   "author": "Federico Moretti <hello@federicomoretti.it>",
   "license": "MIT",
