@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
 import OpenAI from 'openai';
 import express from 'express';
+import bodyParser from 'body-parser';
 import cors from 'cors';
 
 dotenv.config();
@@ -8,6 +9,10 @@ dotenv.config();
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const app = express();
+
+app.use(express.static('dist'));
+app.use(bodyParser.json());
+app.use(cors);
 
 /**
  * Forward the POST request to OpenAI.
@@ -26,10 +31,7 @@ app.post('/chat', async (req, res): Promise<void> => {
   }
 });
 
-app.use(express.static('dist'));
-app.use(cors);
-
 const port = '9000';
 app.listen('9000', () => {
-  console.info(`CORS-enabled server running at localhost on port: ${port}.`);
+  console.info(`CORS-enabled web server running at localhost on port ${port}.`);
 });

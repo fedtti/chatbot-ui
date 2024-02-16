@@ -17,9 +17,7 @@ const sendMessage = async (evt: any): Promise<any> => {
 
   await fetch('/chat', {
     method: 'POST',
-    mode: 'cors',
     headers: {
-      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ question: message })
