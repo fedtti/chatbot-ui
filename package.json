@@ -2,7 +2,18 @@
   "name": "@fedtti/chatbot",
   "version": "1.0.0",
   "description": "Chatbot",
-  "main": "index.js",
+  "keywords": [
+    "ai",
+    "cli",
+    "gpt",
+    "hacktoberfest",
+    "llm",
+    "nodejs"
+  ],
+  "homepage": "https://github.com/fedtti/chatbot",
+  "bugs": {
+    "url": "https://github.com/fedtti/chatbot/issues"
+  },
   "scripts": {
     "build": "rollup -c ./rollup.config.js",
     "start": "DEBUG=express:* node ./dist/js/server.js"
