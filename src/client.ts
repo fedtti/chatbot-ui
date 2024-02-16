@@ -15,7 +15,7 @@ const sendMessage = async (evt: any): Promise<any> => {
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
 
-  await fetch('/chat', {
+  await fetch('http://localhost:9000/chat', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const sendMessage = async (evt: any): Promise<any> => {
       };
     })
     .then((data) => {
-      if (!!data.message) {
+      if (data.message) {
         const answer: HTMLDivElement = document.createElement('div');
         answer.classList.add('answer');
         answer.innerHTML = data.message;
