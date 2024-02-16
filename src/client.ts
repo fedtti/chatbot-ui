@@ -22,8 +22,14 @@ const sendMessage = async (evt: any): Promise<any> => {
     },
     body: JSON.stringify({ question: message })
   })
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error('Error');
+      };
+    })
+    .then((data) => {
       if (!!data.message) {
         const answer: HTMLDivElement = document.createElement('div');
         answer.classList.add('answer');
