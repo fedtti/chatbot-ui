@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 /**
  * Forward the POST request to OpenAI.
  * 
- * @returns - 
+ * @returns {string} answer - GTP-3.5 answer to the user’s question.
  */
 app.post('/chat', async (req, res): Promise<void> => {
   try {
