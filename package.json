@@ -15,6 +15,7 @@
     "url": "https://github.com/fedtti/chatbot/issues"
   },
   "scripts": {
+    "clean": "rm -fr dist/",
     "build": "rollup -c ./rollup.config.js",
     "start": "node ./dist/js/server.js"
   },

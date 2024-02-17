@@ -1,6 +1,6 @@
 # Chatbot
 
-A text-only chatbot based on AI systems written in Node.js
+A graphical chatbot based on AI systems written in Node.js
 
 - [Description](#description)
 - [Instructions](#instructions)
