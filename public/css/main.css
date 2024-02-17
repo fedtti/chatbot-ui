@@ -37,5 +37,12 @@ h1 {
 #footer {
   bottom: 0;
   left: 0;
+  padding-bottom: 0.75rem;
   position: fixed;
+  width: 100%;
+}
+
+#message {
+  margin-right: 0.75rem;
+  width: calc(100% - 0.75rem);
 }
