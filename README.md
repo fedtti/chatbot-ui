@@ -22,7 +22,7 @@ OPENAI_API_KEY=YOUR_API_KEY
 
 Replace `YOUR_API_KEY` with your own API key.
 
-Please, keep in mind that [OpenAI](https://openai.com/) checks for public API keys, so **it will be invalidated if you publish it** somewhere on the web.
+Please, keep in mind that OpenAI checks for public API keys, so **it will be invalidated if you publish it** somewhere on the web.
 
 ### Requirements
 
