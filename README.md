@@ -27,6 +27,10 @@ Please, keep in mind that [OpenAI](https://openai.com/) checks for public API ke
 ### Requirements
 
 - [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Rollup](https://rollupjs.org/)
+- [OpenAI](https://openai.com/)
 
 ### Installing
 
@@ -40,6 +44,8 @@ npm run build
 ```
 npm run start
 ```
+
+Express will start a server at `localhost` listening on port `9000`.
 
 ## Contributing
 
