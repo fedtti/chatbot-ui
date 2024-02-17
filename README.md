@@ -1,4 +1,4 @@
-# Chatbot
+# Chatbot UI
 
 A graphical chatbot based on AI systems written in Node.js
 
