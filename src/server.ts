@@ -31,5 +31,5 @@ app.post('/chat', async (req, res): Promise<void> => {
 
 const port = '9000';
 app.listen('9000', () => {
-  console.info(`CORS-enabled web server running at localhost on port ${port}.`);
+  console.info(`Web server running at localhost on port ${port}.`);
 });
