@@ -10,7 +10,7 @@ const sendMessage = async (evt: any): Promise<any> => {
 
   const question: HTMLDivElement = document.createElement('div');
   question.classList.add('question');
-  question.innerHTML = `<p>${message.toString()}</p>`;
+  question.innerHTML = `<div class="message"><p>${message.toString()}</p></div>`;
   messages.append(question);
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
@@ -29,7 +29,7 @@ const sendMessage = async (evt: any): Promise<any> => {
       if (data.message) {
         const answer: HTMLDivElement = document.createElement('div');
         answer.classList.add('answer');
-        answer.innerHTML = `<p>${data.message.toString()}</p>`;
+        answer.innerHTML = `<div class="message"><p>${data.message.toString()}</p></div>`;
         messages.append(answer);
         const avatar: HTMLDivElement = document.createElement('div');
         avatar.classList.add('avatar');
