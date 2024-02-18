@@ -10,8 +10,8 @@ const sendMessage = async (evt: any): Promise<any> => {
 
   const question: HTMLDivElement = document.createElement('div');
   question.classList.add('question');
-  question.innerHTML = message;
-  messages.appendChild(question);
+  question.innerHTML = `<p>${message.toString()}</p>`;
+  messages.append(question);
 
   (<HTMLInputElement>document.querySelector('#message')).value = ''; // Reset the input field.
 
@@ -29,8 +29,12 @@ const sendMessage = async (evt: any): Promise<any> => {
       if (data.message) {
         const answer: HTMLDivElement = document.createElement('div');
         answer.classList.add('answer');
-        answer.innerHTML = data.message;
-        messages.appendChild(answer);
+        answer.innerHTML = `<p>${data.message.toString()}</p>`;
+        messages.append(answer);
+        const avatar: HTMLDivElement = document.createElement('div');
+        avatar.classList.add('avatar');
+        answer.prepend(avatar);
+        avatar.innerHTML = '<img src="../img/bot.svg" alt="OpenAI Logo" height="32" width="32">';
       }
     })
     .catch((err: any) => {

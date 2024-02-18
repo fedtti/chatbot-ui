@@ -15,7 +15,8 @@ export default {
     copy({
       targets: [
         { src: './public/index.html', dest: './dist' },
-        { src: './public/css/main.css', dest: './dist/css' }
+        { src: './public/css/main.css', dest: './dist/css' },
+        { src: './public/img/bot.svg', dest: './dist/img' }
       ]
     })
   ]
