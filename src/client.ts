@@ -28,7 +28,7 @@ const sendMessage = async (evt: any): Promise<any> => {
     .then((data) => {
       if (data.message) {
         const answer: HTMLDivElement = document.createElement('div');
-        answer.classList.add('answer');
+        answer.classList.add('answer', 'd-flex');
         answer.innerHTML = `<div class="message"><p>${data.message.toString()}</p></div>`;
         messages.append(answer);
         const avatar: HTMLDivElement = document.createElement('div');
