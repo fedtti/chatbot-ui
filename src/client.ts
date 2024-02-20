@@ -33,7 +33,7 @@ const sendMessage = async (evt: any): Promise<any> => {
         messages.append(answer);
         const avatar: HTMLDivElement = document.createElement('div');
         avatar.classList.add('avatar');
-        answer.prepend(avatar);
+        answer.append(avatar);
         avatar.innerHTML = '<img src="../img/bot.svg" alt="OpenAI Logo" height="32" width="32">';
       }
     })

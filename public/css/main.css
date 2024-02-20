@@ -35,6 +35,37 @@ h1 {
   z-index: 1;
 }
 
+.question,
+.answer {
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.question {
+  background-color: #e7700d;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.answer {
+  
+}
+
+.answer > .message {
+  margin-right: 0.5rem;
+}
+
+.message {
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.avatar {
+  height: 3rem;
+  width: 3rem;
+  padding: 0.5rem;
+}
+
 /* FOOTER */
 #footer {
   background-color: white;
