@@ -19,6 +19,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 100;
 }
 
 h1 {
@@ -31,6 +32,7 @@ h1 {
 #content {
   box-sizing: border-box;
   margin: 3.613rem 0 0 0;
+  z-index: 1;
 }
 
 /* FOOTER */
@@ -41,6 +43,7 @@ h1 {
   padding-bottom: 0.75rem;
   position: fixed;
   width: 100%;
+  z-index: 100;
 }
 
 #message {
