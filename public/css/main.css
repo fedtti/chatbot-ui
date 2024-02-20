@@ -36,7 +36,7 @@ h1 {
 }
 
 .question,
-.answer {
+.answer > .message {
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -47,15 +47,13 @@ h1 {
   margin-bottom: 1rem;
 }
 
-.answer {
-  
-}
-
 .answer > .message {
+  background-color: #f1f2f3;
+  color: black;
   margin-right: 0.5rem;
 }
 
-.message {
+.message p {
   line-height: 1.5;
   margin-bottom: 0;
 }
