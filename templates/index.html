@@ -13,10 +13,18 @@
       <p>Online</p>
     </header>
     <main>
+      {% for message in history %}
 
+      {% endfor %}
     </main>
     <footer>
-
+      <form method="post" action="/" novalidate>
+        <fieldset>
+          <legend class="sr-only">Send a message to ChatGPT</legend>
+          <label for="message"><span class="sr-only">Message:</span> <input name="message" placeholder="Enter your message …" type="text" autocomplete="off" autofocus required></label>
+          <button type="submit">Send</button>
+        </fieldset>
+      </form>
     </footer>
   </body>
 </html>
