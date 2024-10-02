@@ -13,10 +13,17 @@
       <p>Final Project by Federico Moretti</p>
     </header>
     <main>
-      {% for message in history %}
-        {% if message.role != 'system' %}
-          <div class="{{ message.role }}">
-            <p>{{ message.content }}</p>
+      {% for item in history %}
+        {% if item.role != 'system' %}
+          <div class="{{ item.role }}">
+            <div class="">
+              <p>{{ item.content }}</p>
+            </div>
+            {% if item.role == 'assistant' %}
+            <div class="avatar">
+              <img alt="" src="">
+            </div>
+          {% endif %}
           </div>
         {% endif %}
       {% endfor %}

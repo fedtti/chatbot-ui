@@ -73,12 +73,21 @@ def response():
 
 
 # Connect to an existing SQLite database.
-connection = sqlite3.connect('database.db', check_same_thread=False)
-cursor = connection.cursor()
+with sqlite3.connect('database.db', check_same_thread=False) as connection:
+    cursor = connection.cursor()
+
+
+# Create a table if it does not exist yet.
+def create():
+    cursor.execute('CREATE TABLE IF NOT EXISTS history (id INTEGER PRIMARY KEY AUTOINCREMENT, role TEXT, content TEXT)')
+
+    return 0
 
 
 # Write the latest chat history session to the database.
 def write(message):
+    create()
+
     if message:
         cursor.execute('INSERT INTO history(role, content) VALUES(:role, :content)', message)
         connection.commit()
