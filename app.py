@@ -1,7 +1,7 @@
 from flask import Flask, request, redirect, jsonify, render_template
+from dotenv import load_dotenv
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
 import sqlite3
 
 
@@ -17,8 +17,8 @@ history = [{
 }]
 
 # Connect to an existing SQLite database
-connect = sqlite3.connect('database.db')
-cursor = connect.cursor()
+connection = sqlite3.connect('database.db')
+cursor = connection.cursor()
 
 #
 @app.route('/', methods=['GET', 'POST'])
@@ -69,11 +69,20 @@ def response():
 
 # Read previous chat history sessions from the database.
 def read():
+    global history
+    cursor.execute('SELECT id, role, content FROM history')
+    cursor.fetchall()
+    # TODO: @fedtti - Save data to the history.
 
 
 # Write the latest chat history session to the database.
 def write(history):
+    cursor.execute('CREATE TABLE IF NOT EXIST history(id INT PRIMARY KEY AUTOINCREMENT, role TEXT, content TEXT)')
 
+    if history:
+        cursor.executemany('INSERT INTO history VALUES(?, ?, ?)', history)
+        connection.commit()
+        connection.close()
 
 if __name__ == '__main__':
     app.run(debug=True)
