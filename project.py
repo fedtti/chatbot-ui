@@ -75,7 +75,6 @@ def response():
             'role': 'assistant',
             'content': response.choices[0].message.content
         }
-
         history.append(data)
         write(data)
         return redirect('/')
@@ -105,17 +104,19 @@ def write(message):
 
 # Read previous chat history sessions from the database (if any).
 def read():
-    global history
     create()
-    cursor.execute('SELECT id, role, content FROM history')
-    items = cursor.fetchall()
+    global history
 
-    for item in items:
-        history.append({
-            'role': item[1],
-            'content': item[2]
-        })
-    return 0
+    if len(history) <= 1:
+        cursor.execute('SELECT id, role, content FROM history')
+        items = cursor.fetchall()
+
+        for item in items:
+            history.append({
+                'role': item[1],
+                'content': item[2]
+            })
+        return 0
 
 
 if __name__ == '__main__':

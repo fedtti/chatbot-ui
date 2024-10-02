@@ -81,6 +81,11 @@ main p {
 
 .assistant {
   align-self: flex-end;
+  display: flex;
+}
+
+.assistant .avatar {
+  align-self: center;
 }
 
 /* FOOTER */
