@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect,render_template
+from flask import Flask, request, redirect, render_template
 from dotenv import load_dotenv
 from openai import OpenAI
 import os
@@ -14,12 +14,12 @@ history = [{
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 
+def main():
+    app.run(debug=True)
 
-#
 @app.route('/', methods=['GET', 'POST'])
 def index():
     global history
-
 
     if request.method == 'POST':
         message = request.form.get('message')
@@ -69,15 +69,16 @@ def response():
         }
         history.append(data)
         write(data)
+
         return redirect('/')
 
 
-# Connect to an existing SQLite database.
+# Connect to an existing SQLite database or create a new one.
 with sqlite3.connect('database.db', check_same_thread=False) as connection:
     cursor = connection.cursor()
 
 
-# Create a table if it does not exist yet.
+# Create a table if it does not exist yet in the existing database.
 def create():
     cursor.execute('CREATE TABLE IF NOT EXISTS history (id INTEGER PRIMARY KEY AUTOINCREMENT, role TEXT, content TEXT)')
 
@@ -112,4 +113,4 @@ def read():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    main()
