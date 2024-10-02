@@ -3,17 +3,7 @@ from dotenv import load_dotenv
 from openai import OpenAI
 import os
 import sqlite3
-import json
 
-
-app = Flask(__name__)
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-
-load_dotenv()
-
-# Connect to an existing SQLite database
-connection = sqlite3.connect('database.db', check_same_thread=False)
-cursor = connection.cursor()
 
 history = [{
     'role': 'system',
@@ -21,11 +11,15 @@ history = [{
 }]
 
 
+app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
+
+
 #
 @app.route('/', methods=['GET', 'POST'])
 def index():
     global history
-    read()
+
 
     if request.method == 'POST':
         message = request.form.get('message')
@@ -40,7 +34,14 @@ def index():
             response()
             return redirect('/')
 
+    else:
+        read()
+
     return render_template('index.html', history=history)
+
+
+load_dotenv()
+
 
 # Get a response from ChatGPT, show it and save it to the chat session history.
 def response():
@@ -71,16 +72,24 @@ def response():
         return redirect('/')
 
 
+# Connect to an existing SQLite database.
+connection = sqlite3.connect('database.db', check_same_thread=False)
+cursor = connection.cursor()
+
+
 # Write the latest chat history session to the database.
 def write(message):
     if message:
         cursor.execute('INSERT INTO history(role, content) VALUES(:role, :content)', message)
         connection.commit()
 
+    return 0
 
-# Read previous chat history sessions from the database.
+
+# Read previous chat history sessions from the database (if any).
 def read():
     global history
+
     cursor.execute('SELECT id, role, content FROM history')
     items = cursor.fetchall()
 
@@ -89,6 +98,8 @@ def read():
             'role': item[1],
             'content': item[2]
         })
+
+    return 0
 
 
 if __name__ == '__main__':
