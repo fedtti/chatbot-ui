@@ -1,8 +1,9 @@
-from flask import Flask, request, redirect, jsonify, render_template
+from flask import Flask, request, redirect,render_template
 from dotenv import load_dotenv
 from openai import OpenAI
 import os
 import sqlite3
+import json
 
 
 app = Flask(__name__)
@@ -10,15 +11,15 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 load_dotenv()
 
-# Store the chat session history in a list.
+# Connect to an existing SQLite database
+connection = sqlite3.connect('database.db', check_same_thread=False)
+cursor = connection.cursor()
+
 history = [{
-  "role": "system",
-  "content": "You are a helpful assistant."
+    'role': 'system',
+    'content': 'You are a helpful assistant'
 }]
 
-# Connect to an existing SQLite database
-connection = sqlite3.connect('database.db')
-cursor = connection.cursor()
 
 #
 @app.route('/', methods=['GET', 'POST'])
@@ -30,19 +31,19 @@ def index():
         message = request.form.get('message')
 
         if message:
-            history.append({
+            data = {
                 'role': 'user',
                 'content': message
-            })
+            }
+            history.append(data)
+            write(data)
             response()
             return redirect('/')
 
-    write(history)
     return render_template('index.html', history=history)
 
 # Get a response from ChatGPT, show it and save it to the chat session history.
 def response():
-    global history
     token = os.getenv('GITHUB_TOKEN')
     endpoint = 'https://models.inference.ai.azure.com'
     model_name = 'gpt-4o'
@@ -61,28 +62,34 @@ def response():
     )
 
     if response:
-        history.append({
+        data = {
             'role': 'assistant',
             'content': response.choices[0].message.content
-        })
+        }
+        history.append(data)
+        write(data)
         return redirect('/')
+
+
+# Write the latest chat history session to the database.
+def write(message):
+    if message:
+        cursor.execute('INSERT INTO history(role, content) VALUES(:role, :content)', message)
+        connection.commit()
+
 
 # Read previous chat history sessions from the database.
 def read():
     global history
     cursor.execute('SELECT id, role, content FROM history')
-    cursor.fetchall()
-    # TODO: @fedtti - Save data to the history.
+    items = cursor.fetchall()
 
+    for item in items:
+        history.append({
+            'role': item[1],
+            'content': item[2]
+        })
 
-# Write the latest chat history session to the database.
-def write(history):
-    cursor.execute('CREATE TABLE IF NOT EXIST history(id INT PRIMARY KEY AUTOINCREMENT, role TEXT, content TEXT)')
-
-    if history:
-        cursor.executemany('INSERT INTO history VALUES(?, ?, ?)', history)
-        connection.commit()
-        connection.close()
 
 if __name__ == '__main__':
     app.run(debug=True)
