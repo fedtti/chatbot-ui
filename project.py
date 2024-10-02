@@ -20,7 +20,6 @@ def create_app():
         response.headers['Cache-Control'] = 'no-cache, no-store, must-revalidate'
         response.headers['Expires'] = 0
         response.headers['Pragma'] = 'no-cache'
-
         return response
 
     @app.route('/', methods=['GET', 'POST'])
@@ -29,19 +28,15 @@ def create_app():
 
         if request.method == 'POST':
             message = request.form.get('message')
-
             if message:
                 data = {
                     'role': 'user',
                     'content': message
                 }
-
                 history.append(data)
                 write(data)
                 response()
-
                 return redirect('/')
-
         else:
             read()
 
@@ -63,12 +58,10 @@ def response():
     token = os.getenv('GITHUB_TOKEN')
     endpoint = 'https://models.inference.ai.azure.com'
     model_name = 'gpt-4o'
-
     client = OpenAI(
         base_url=endpoint,
         api_key=token
     )
-
     response = client.chat.completions.create(
         messages = history,
         temperature=1.0,
@@ -85,7 +78,6 @@ def response():
 
         history.append(data)
         write(data)
-
         return redirect('/')
 
 
@@ -97,7 +89,6 @@ with sqlite3.connect('database.db', check_same_thread=False) as connection:
 # Create a table if it does not exist yet in the existing database.
 def create():
     cursor.execute('CREATE TABLE IF NOT EXISTS history (id INTEGER PRIMARY KEY AUTOINCREMENT, role TEXT, content TEXT)')
-
     return 0
 
 
@@ -115,7 +106,7 @@ def write(message):
 # Read previous chat history sessions from the database (if any).
 def read():
     global history
-
+    create()
     cursor.execute('SELECT id, role, content FROM history')
     items = cursor.fetchall()
 
@@ -124,7 +115,6 @@ def read():
             'role': item[1],
             'content': item[2]
         })
-
     return 0
 
 
