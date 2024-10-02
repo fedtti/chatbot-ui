@@ -3,3 +3,4 @@ dotenv
 openai
 sqlite3
 pytest
+pytest_flask
