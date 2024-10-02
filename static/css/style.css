@@ -29,6 +29,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 header p {
@@ -52,9 +53,34 @@ h1 abbr[title] {
 
 /* MAIN */
 main {
+  bottom: 0;
   display: flex;
-  flex-direction: column-reverse;
-  margin: 7.1rem 0 5.2rem 0;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100%;
+  overflow: auto;
+  padding-bottom: 5.2rem;
+  position: absolute;
+  width: 100%;
+}
+
+main div {
+  margin-top: auto;
+  padding: 1rem;
+}
+
+main p {
+  font-size: 1.6rem;
+  min-height: 3.2rem;
+  line-height: 1.24;
+}
+
+.user {
+  align-self: flex-start;
+}
+
+.assistant {
+  align-self: flex-end;
 }
 
 /* FOOTER */
@@ -65,6 +91,7 @@ footer {
   padding: 1rem;
   position: fixed;
   width: 100%;
+  z-index: 1;
 }
 
 fieldset {
@@ -84,6 +111,7 @@ input, button {
   font-family: inherit;
   font-size: 1.6rem;
   height: 3.2rem;
+  line-height: 1.5;
   outline: none;
 }
 
@@ -94,7 +122,7 @@ input {
 }
 
 input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.25);
   text-transform: lowercase;
 }
 

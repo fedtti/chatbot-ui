@@ -10,15 +10,19 @@
   <body>
     <header>
       <h1>Chatbot <abbr title="User Interface">UI</abbr></h1>
-      <p>Online</p>
+      <p>Final Project by Federico Moretti</p>
     </header>
     <main>
       {% for message in history %}
-
+        {% if message.role != 'system' %}
+          <div class="{{ message.role }}">
+            <p>{{ message.content }}</p>
+          </div>
+        {% endif %}
       {% endfor %}
     </main>
     <footer>
-      <form method="post" action="/" novalidate>
+      <form action="/" method="post" novalidate>
         <fieldset>
           <legend class="sr-only">Send a message to ChatGPT</legend>
           <label for="message"><span class="sr-only">Message:</span> <input name="message" placeholder="Enter your message …" type="text" autocomplete="off" autofocus required></label>
