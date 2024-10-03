@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect, render_template
 from dotenv import load_dotenv
 from openai import OpenAI
+import markdown
 import os
 import sqlite3
 
@@ -75,7 +76,7 @@ def response():
     if response:
         data = {
             'role': 'assistant',
-            'content': response.choices[0].message.content
+            'content': markdown.markdown(response.choices[0].message.content)
         }
         history.append(data)
         write(data)
