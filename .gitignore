@@ -1,4 +1,4 @@
-/.pytest-cache
+/.pytest_cache
 /.venv
 
 *.db

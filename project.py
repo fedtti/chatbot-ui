@@ -11,6 +11,7 @@ history = [{
 }]
 
 
+#
 def create_app():
     app = Flask(__name__)
     app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -45,6 +46,7 @@ def create_app():
     return app
 
 
+#
 def main():
     app = create_app()
     app.run(debug=True)

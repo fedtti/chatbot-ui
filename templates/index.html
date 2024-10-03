@@ -12,11 +12,12 @@
       <h1>Chatbot <abbr title="User Interface">UI</abbr></h1>
       <p>Final Project by Federico Moretti</p>
     </header>
+    <aside></aside>
     <main>
       {% for item in history %}
         {% if item.role != 'system' %}
           <div class="{{ item.role }}">
-            <div>
+            <div class="content">
               <p>{{ item.content }}</p>
             </div>
             {% if item.role == 'assistant' %}
