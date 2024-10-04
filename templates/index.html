@@ -13,13 +13,13 @@
       <p>Final Project by Federico Moretti</p>
     </header>
     <aside></aside>
-    <main>
+    <main id="contents">
       {% for item in history %}
         {% if item.role != 'system' %}
           <div class="{{ item.role }}">
             <div class="content">
               {% if item.role == 'user' %}
-              <p>{{ item.content }}</p>
+                <p>{{ item.content }}</p>
               {% else %}
                 {{ item.content | safe }}
               {% endif %}
@@ -42,5 +42,6 @@
         </fieldset>
       </form>
     </footer>
+    <script src=".{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>
