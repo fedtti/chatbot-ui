@@ -79,14 +79,35 @@ h1 abbr[title] {
   padding: 1rem;
 }
 
-#content p {
+#content h3, #content p, #content li {
   font-size: 1.6rem;
   min-height: 3.2rem;
   line-height: 1.5;
 }
 
+#content h3 {
+  margin-top: 1rem;
+}
+
+#content ol, #content ul {
+  margin-left: 1rem;
+}
+
+#content li {
+  list-style: disc;
+  margin-left: 1rem;
+}
+
+#content li::marker {
+  color: #0080a3;
+}
+
 #content code, #content pre {
   font-family: 'Red Hat Mono', monospace;
+}
+
+#content strong {
+  font-weight: 700;
 }
 
 #content a {

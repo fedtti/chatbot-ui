@@ -1,3 +1,4 @@
+""" Module providing Flask features """
 from flask import Flask, request, redirect, render_template
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -26,8 +27,6 @@ def create_app():
 
     @app.route('/', methods=['GET', 'POST'])
     def index():
-        global history
-
         if request.method == 'POST':
             message = request.form.get('message')
             if message:
@@ -102,7 +101,6 @@ def write(message):
 # Read previous chat history sessions from the database (if any).
 def read():
     create()
-    global history
 
     if len(history) <= 1:
         cursor.execute('SELECT id, role, content FROM history')
@@ -114,7 +112,3 @@ def read():
                 'content': item[2]
             })
         return 0
-
-
-if __name__ == '__main__':
-    app.run()
