@@ -1,4 +1,4 @@
-from project import create_app, create
+from app import create_app, create
 import sqlite3
 import pytest
 
