@@ -3,8 +3,8 @@
  */
 scrollToBottom = () => {
   setTimeout(() => {
-    const contents = document.getElementById('contents');
-    contents.scrollTop = contents.scrollHeight;
+    const content = document.getElementById('content');
+    content.scrollTop = content.scrollHeight;
   }, 500);
 };
 scrollToBottom();

@@ -52,8 +52,8 @@ h1 abbr[title] {
   cursor: help;
 }
 
-/* ASIDE */
-aside {
+/* BLUR */
+#blur {
   background: linear-gradient(rgba(255, 255, 255, 0.75), transparent);
   height: 1.5rem;
   left: 0;
@@ -63,38 +63,38 @@ aside {
   z-index: 1;
 }
 
-/* MAIN */
-main {
+/* CONTENTS */
+#content {
   bottom: 0;
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding-bottom: 5.2rem;
+  padding: 7.1rem 0 5.2rem 0;
   position: relative;
   width: 100%;
   z-index: 0;
 }
 
-main div {
+#content div {
   margin-top: auto;
   padding: 1rem;
 }
 
-main p {
+#content p {
   font-size: 1.6rem;
   min-height: 3.2rem;
   line-height: 1.5;
 }
 
-code, pre {
+#content code, #content pre {
   font-family: 'Red Hat Mono', monospace;
 }
 
-a {
+#content a {
   color: #0080a3;
 }
 
-a:active, a:focus, a:hover {
+#content a:active, #content a:focus, #content a:hover {
   text-decoration: none;
 }
 

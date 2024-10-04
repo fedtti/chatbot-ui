@@ -1,0 +1,23 @@
+{% block content %}
+  <!-- CONTENT -->
+  <main id="content">
+    {% for item in history %}
+      {% if item.role != 'system' %}
+        <div class="{{ item.role }}">
+          <div class="content">
+            {% if item.role == 'user' %}
+              <p>{{ item.content }}</p>
+            {% else %}
+              {{ item.content | safe }}
+            {% endif %}
+          </div>
+          {% if item.role == 'assistant' %}
+          <div class="avatar">
+            <img alt="Logo of OpenAI" src=".{{ url_for('static', filename='img/openai.svg') }}" width="48" height="48">
+          </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </main>
+{% endblock %}

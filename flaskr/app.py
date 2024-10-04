@@ -42,7 +42,7 @@ def create_app():
         else:
             read()
 
-        return render_template('index.html', history=history)
+        return render_template('base.html', history=history)
 
     return app
 
