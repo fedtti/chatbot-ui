@@ -5,13 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chatbot UI</title>
+    <link rel="shortcut icon" href=".{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href=".{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
     <!-- HEADER -->
     <header>
       <h1>Chatbot <abbr title="User Interface">UI</abbr></h1>
-      <p>Final Project by Federico Moretti</p>
+      <p>GPT-4o by OpenAI</p>
     </header>
     <aside class="blur"></aside>
     {% include 'content.html' %}

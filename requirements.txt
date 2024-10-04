@@ -1,7 +1,0 @@
-flask
-dotenv
-openai
-markdown
-sqlite3
-pytest
-pytest_flask

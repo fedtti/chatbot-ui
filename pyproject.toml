@@ -1,0 +1,10 @@
+[project]
+name = "chatbot-ui"
+version = "1.0.0"
+description = ""
+dependencies = [
+  "flask",
+  "Markdown",
+  "pytest",
+  "pytest-flask"
+]

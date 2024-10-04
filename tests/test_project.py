@@ -1,4 +1,4 @@
-from app import create_app, create
+from flaskr import create_app, create
 import sqlite3
 import pytest
 

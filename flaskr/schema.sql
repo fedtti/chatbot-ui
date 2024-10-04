@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS completions;
+
+CREATE TABLE completions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  role TEXT NOT NULL,
+  content TEXT NOT NULL
+);
