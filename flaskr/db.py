@@ -2,6 +2,7 @@ from flask import current_app, g
 import sqlite3
 import click
 
+
 def get_db():
   if 'db' not in g:
     g.db = sqlite3.connect(
@@ -12,7 +13,7 @@ def get_db():
   return g.db
 
 
-def close_db(e=None):
+def close_db(error=None):
   db = g.pop('db', None)
 
 
