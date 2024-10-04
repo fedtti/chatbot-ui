@@ -23,7 +23,6 @@ def create_app(test_config=None):
   from . import db
   db.init_app(app)
 
-
   with app.app_context():
     from . import views
     app.register_blueprint(views.bp)
