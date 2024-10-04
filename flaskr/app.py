@@ -47,12 +47,6 @@ def create_app():
     return app
 
 
-# Create and run the application.
-def main():
-    app = create_app()
-    app.run(debug=True)
-
-
 load_dotenv()
 
 
@@ -123,4 +117,4 @@ def read():
 
 
 if __name__ == '__main__':
-    main()
+    app.run()
