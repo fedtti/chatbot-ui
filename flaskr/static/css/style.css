@@ -52,8 +52,7 @@ h1 abbr[title] {
   cursor: help;
 }
 
-/* BLUR */
-#blur {
+.blur {
   background: linear-gradient(rgba(255, 255, 255, 0.75), transparent);
   height: 1.5rem;
   left: 0;
@@ -139,6 +138,16 @@ h1 abbr[title] {
 .avatar img {
   height: 4.8rem;
   width: 4.8rem;
+}
+
+.blur-inverted {
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.75));
+  height: 1.5rem;
+  left: 0;
+  position: fixed;
+  bottom: 5.2rem;
+  width: 100%;
+  z-index: 1;
 }
 
 /* FOOTER */
