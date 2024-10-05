@@ -86,7 +86,7 @@ def get_completion():
 
 def write(data):
   if data:
-    db.execute('INSERT INTO completions(role, content) VALUES(:role, :content)', data)
+    db.execute('INSERT INTO completions (role, content) VALUES (:role, :content)', data)
     db.commit()
 
     return 0
