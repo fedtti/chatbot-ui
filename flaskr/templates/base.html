@@ -9,24 +9,11 @@
     <link rel="stylesheet" href=".{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
-    <!-- HEADER -->
-    <header>
-      <h1>Chatbot <abbr title="User Interface">UI</abbr></h1>
-      <p>GPT-4o by OpenAI</p>
-    </header>
+    {% include 'header.html' %}
     <aside class="blur"></aside>
     {% include 'content.html' %}
     <aside class="blur-inverted"></aside>
-    <!-- FOOTER -->
-    <footer>
-      <form action="/" method="post" novalidate>
-        <fieldset>
-          <legend class="sr-only">Send a message to ChatGPT</legend>
-          <label for="message"><span class="sr-only">Message:</span> <input name="message" placeholder="Enter your message …" type="text" autocomplete="off" autofocus required></label>
-          <button type="submit">Send</button>
-        </fieldset>
-      </form>
-    </footer>
+    {% include 'footer.html' %}
     <script src=".{{ url_for('static', filename='js/app.js') }}"></script>
   </body>
 </html>
